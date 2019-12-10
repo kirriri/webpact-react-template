@@ -17,10 +17,16 @@ const generateConfig = env => {
     )
 
     const getStyleLoader = type => {
-        return (isDevelopment ? [] : [
+        return (isDevelopment ? [
+            {
+                loader: 'style-loader'
+            }
+        ] : [
+            {
+                loader: MiniCssExtractPlugin.loader
+            }
         ]).concat(
             [
-                MiniCssExtractPlugin.loader,
                 {
                     loader: 'css-loader',
                     options: {
@@ -44,14 +50,7 @@ const generateConfig = env => {
     }
 
     const getSassStyleLoader = type => {
-        const sassLoader = (isDevelopment ? [] : [
-            MiniCssExtractPlugin.loader
-        ]).concat([
-            {
-                loader: "sass-loader"
-            }
-        ])
-        return getStyleLoader(type).concat(sassLoader)
+        return getStyleLoader(type).concat([{loader: "sass-loader"}])
     }
 
     return {
@@ -59,12 +58,6 @@ const generateConfig = env => {
         //production cheep-module-source-map
         entry: {
             main: './app/src/index.js'
-        },
-        output: {
-            // publicPath: 'www.cdn.com/',远程引入时填写前缀
-            filename: 'js/[name]_[hash:5].js',
-            chunkFilename: 'js/[name]_[contenthash].js',
-            path: path.resolve(__dirname, '../build')
         },
         resolve: {
             alias: {
@@ -84,8 +77,8 @@ const generateConfig = env => {
                     use: {
                         loader: 'url-loader',
                         options: {
-                            name: '[name]_[hash:5].[ext]',
-                            outputPath: 'static/images/',
+                            name: '[name]_[hash:7].[ext]',
+                            outputPath: '/static/images',
                             limit: 10240
                         }
                     }
@@ -128,13 +121,13 @@ const generateConfig = env => {
             new HtmlWebpackPlugin({
                 template: 'app/public/index.html',
                 minify: {
-                    collapseWhitespace: env === 'pr',
+                    collapseWhitespace: env === 'production',
                 },
                 hash: true,
             }),
             new MiniCssExtractPlugin({
-                filename: '[name].css',
-                chunkFilename: '[name].chunk.css'
+                filename: 'static/css/[name].css',
+                chunkFilename: 'static/css/[name].chunk.css'
             })
         ]
     }

@@ -37,6 +37,7 @@
   "dependencies": {
     "autoprefixer": "^9.7.3",
     "css-loader": "^3.2.1",
+    "file-loader": "^5.0.2",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
