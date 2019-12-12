@@ -12,6 +12,22 @@ module.exports = {
         open: true,
         port: 8080,
         hot: true,
+        // hotOnly: true,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        publicPath: './static/images/',
+                        limit: 10240
+                    }
+                }
+            },
+        ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin()

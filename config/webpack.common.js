@@ -31,6 +31,7 @@ const generateConfig = env => {
                     loader: 'css-loader',
                     options: {
                         importLoaders: type,
+                        url: false
                     }
                 },
                 {
@@ -61,7 +62,8 @@ const generateConfig = env => {
         },
         resolve: {
             alias: {
-                '@components': path.resolve(__dirname, '../app/src/components')
+                '@components': path.resolve(__dirname, '../app/src/components'),
+                // './static': '../public/static'
             }
         },
         module: {
@@ -72,17 +74,6 @@ const generateConfig = env => {
                     exclude: /node_modules/,
                     use: scriptLoader
                 }, 
-                {
-                    test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                    use: {
-                        loader: 'url-loader',
-                        options: {
-                            name: '[name]_[hash:7].[ext]',
-                            outputPath: '/static/images',
-                            limit: 10240
-                        }
-                    }
-                },
                 {
                     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                     loader: 'url-loader',
