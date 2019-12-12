@@ -23,7 +23,10 @@ const generateConfig = env => {
             }
         ] : [
             {
-                loader: MiniCssExtractPlugin.loader
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    publicPath: '../../'
+                }
             }
         ]).concat(
             [
@@ -31,7 +34,7 @@ const generateConfig = env => {
                     loader: 'css-loader',
                     options: {
                         importLoaders: type,
-                        url: false
+                        // url: false
                     }
                 },
                 {
@@ -63,7 +66,7 @@ const generateConfig = env => {
         resolve: {
             alias: {
                 '@components': path.resolve(__dirname, '../app/src/components'),
-                // './static': '../public/static'
+                'images': '../public/static/images',
             }
         },
         module: {

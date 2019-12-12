@@ -17,9 +17,10 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            name: 'images/[name].[ext]',
-                            outputPath: 'static/',
-                            publicPath: '../',
+                            esModule: false,
+                            name: '[name].[ext]',
+                            outputPath: 'static/images/',
+                            // publicPath: '../../',
                             limit: 10240
                         }
                     }
