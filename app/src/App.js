@@ -7,7 +7,8 @@ class App extends React.Component {
       return (
         <div>
           <h2 className="test">Hello World! da23423!</h2>
-          <img src="./static/images/test.png" alt=""/>
+          <img src={require("./static/images/test.png")} alt=""/>
+          <p className="aab">测试用例</p>
         </div>
       )
     }

@@ -23,7 +23,10 @@ const generateConfig = env => {
             }
         ] : [
             {
-                loader: MiniCssExtractPlugin.loader
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    publicPath: '../../'
+                }
             }
         ]).concat(
             [
@@ -31,7 +34,7 @@ const generateConfig = env => {
                     loader: 'css-loader',
                     options: {
                         importLoaders: type,
-                        url: false,
+                        // url: false
                     }
                 },
                 {
@@ -63,7 +66,7 @@ const generateConfig = env => {
         resolve: {
             alias: {
                 '@components': path.resolve(__dirname, '../app/src/components'),
-                // './static': '../public/static'
+                './static': '../public/static/',
             }
         },
         module: {
@@ -78,9 +81,9 @@ const generateConfig = env => {
                     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                     loader: 'url-loader',
                     options: {
-                        limit: 10000,
+                        limit: 14000,
                         outputPath:'static/fonts/',
-                        name: '[name]_[hash:5].[ext]'
+                        name: '[name].[ext]'
                     }
                 },
                 {

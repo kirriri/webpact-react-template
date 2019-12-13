@@ -1,3 +1,14 @@
 .test {
-    background: url('./static/images/test.png');
+    background: url('./static/images/test_02.jpg');
+}
+
+
+@font-face {
+    font-family: 'ararin';
+    src: url('./static/fonts/Alibaba-PuHuiTi-Bold.ttf');
+}
+
+.aab {
+    font-family: 'ararin'
+
 }

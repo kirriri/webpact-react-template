@@ -14,6 +14,9 @@ module.exports = {
         hot: true,
         // hotOnly: true,
     },
+    // node: {
+    //     fs: 'empty'
+    // },
     module: {
         rules: [
             {
@@ -21,8 +24,10 @@ module.exports = {
                 use: {
                     loader: 'url-loader',
                     options: {
-                        name: '[name].[ext]',
-                        publicPath: './static/images/',
+                        esModule: false,
+                        name: '[name]_[hash:5].[ext]',
+                        outputPath: 'static/images/',
+                        public: '../',
                         limit: 10240
                     }
                 }
