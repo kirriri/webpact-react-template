@@ -31,7 +31,7 @@ const generateConfig = env => {
                     loader: 'css-loader',
                     options: {
                         importLoaders: type,
-                        url: false
+                        url: false,
                     }
                 },
                 {
@@ -94,7 +94,7 @@ const generateConfig = env => {
             ]
         },
         optimization: {
-            usedExports: true,
+            // usedExports: true,
             runtimeChunk: {
                 name: 'runtime'
             },
