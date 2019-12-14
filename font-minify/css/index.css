@@ -1,0 +1,10 @@
+
+@font-face {
+    font-family: 'ararin';
+    src: url(../font-famliy/Alibaba-PuHuiTi-Bold.ttf);
+}
+
+.font-one {
+    font-family: 'ararin'
+
+}

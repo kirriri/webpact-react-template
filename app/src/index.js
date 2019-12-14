@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router from './router'
-import './reset.css'
+import store from './store'
+import './reset.scss'
+import { Provider } from 'react-redux'
 
-ReactDOM.render(<Router />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <Router />
+    </Provider>,
+    document.getElementById('root'));
