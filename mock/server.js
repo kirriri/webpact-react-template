@@ -7,10 +7,10 @@ app.get('/', function(req, res) {
     res.send('hello world');
 });
 
-router.use("/test",require('./test'));
+router.use("/test",require('./mock'));
 
 
 app.use("/api",router)
 
 
-app.listen(3001)
+app.listen(3000)

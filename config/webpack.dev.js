@@ -13,6 +13,11 @@ module.exports = {
         port: 8080,
         hot: true,
         // hotOnly: true,
+        proxy: {
+            '/api': 'http://localhost:3000',
+            secure: false,
+            // changeOrigin: true,
+        }
     },
     // node: {
     //     fs: 'empty'
